@@ -1,0 +1,42 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UNKNOWN = exports.LabelName = exports.Stage = exports.Status = void 0;
+var Status;
+(function (Status) {
+    Status["PASSED"] = "passed";
+    Status["FAILED"] = "failed";
+    Status["BROKEN"] = "broken";
+    Status["SKIPPED"] = "skipped";
+})(Status = exports.Status || (exports.Status = {}));
+var Stage;
+(function (Stage) {
+    Stage["SCHEDULED"] = "scheduled";
+    Stage["RUNNING"] = "running";
+    Stage["FINISHED"] = "finished";
+    Stage["PENDING"] = "pending";
+    Stage["INTERRUPTED"] = "interrupted";
+})(Stage = exports.Stage || (exports.Stage = {}));
+var LabelName;
+(function (LabelName) {
+    LabelName["ALLURE_ID"] = "ALLURE_ID";
+    LabelName["AS_ID"] = "ALLURE_ID";
+    LabelName["SUITE"] = "suite";
+    LabelName["PARENT_SUITE"] = "parentSuite";
+    LabelName["SUB_SUITE"] = "subSuite";
+    LabelName["EPIC"] = "epic";
+    LabelName["FEATURE"] = "feature";
+    LabelName["STORY"] = "story";
+    LabelName["SEVERITY"] = "severity";
+    LabelName["TAG"] = "tag";
+    LabelName["OWNER"] = "owner";
+    LabelName["LEAD"] = "lead";
+    LabelName["HOST"] = "host";
+    LabelName["THREAD"] = "thread";
+    LabelName["TEST_METHOD"] = "testMethod";
+    LabelName["TEST_CLASS"] = "testClass";
+    LabelName["PACKAGE"] = "package";
+    LabelName["FRAMEWORK"] = "framework";
+    LabelName["LANGUAGE"] = "language";
+    LabelName["LAYER"] = "layer";
+})(LabelName = exports.LabelName || (exports.LabelName = {}));
+exports.UNKNOWN = 'unknown';

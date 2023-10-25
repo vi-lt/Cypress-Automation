@@ -1,0 +1,1 @@
+[{"values":["win32"],"name":"os"},{"values":["10.0.22621"],"name":"osVersion"},{"values":["Chrome 118.0.5993.89"],"name":"browser"},{"values":["true"],"name":"allure"},{"values":["true"],"name":"allureCleanResults"},{"values":["wrap"],"name":"allureSkipCommands"},{"values":["allure-results"],"name":"allureResults"},{"values":["58644"],"name":"allureWsPort"}]

@@ -1,0 +1,88 @@
+/// <reference types="cypress" />
+import { AllureGroup, AllureRuntime, AllureStep, AllureTest, ExecutableItem, ExecutableItemWrapper, FixtureResult, StatusDetails, TestResult } from 'allure-js-commons';
+import { ReporterOptions } from './allure';
+import { GlobalHooks } from './allure-global-hook';
+import { AllureTaskArgs, Status, StatusType } from './allure-types';
+export declare class AllureReporter {
+    private showDuplicateWarn;
+    private allureResults;
+    private allureAddVideoOnPass;
+    private allureSkipSteps;
+    private videos;
+    private screenshots;
+    groups: AllureGroup[];
+    tests: AllureTest[];
+    steps: AllureStep[];
+    labels: {
+        name: string;
+        value: string;
+    }[];
+    globalHooks: GlobalHooks;
+    hooks: {
+        id?: string;
+        hook: ExecutableItemWrapper;
+    }[];
+    allHooks: {
+        id?: string;
+        hook: ExecutableItemWrapper;
+        suite: string;
+    }[];
+    currentSpec: Cypress.Spec | undefined;
+    allureRuntime: AllureRuntime;
+    descriptionHtml: string[];
+    attached: string[];
+    testStatusStored: AllureTaskArgs<'testStatus'> | undefined;
+    testDetailsStored: AllureTaskArgs<'testDetails'> | undefined;
+    constructor(opts: ReporterOptions);
+    get currentGroup(): AllureGroup | undefined;
+    get currentTest(): AllureTest | undefined;
+    get currentHook(): ExecutableItemWrapper | undefined;
+    get currentStep(): AllureStep | undefined;
+    get currentExecutable(): ExecutableItemWrapper | undefined;
+    addGlobalHooks(): void;
+    suiteStarted(arg: AllureTaskArgs<'suiteStarted'>): void;
+    specStarted(args: AllureTaskArgs<'specStarted'>): void;
+    hookStarted(arg: AllureTaskArgs<'hookStarted'>): void;
+    setExecutableStatus(executable: ExecutableItemWrapper | undefined, res: Status, dtls?: StatusDetails): void;
+    setExecutableItemStatus(executableItem: ExecutableItem | undefined, res: Status, dtls?: StatusDetails): void;
+    hookEnded(arg: AllureTaskArgs<'hookEnded'>): void;
+    endHooks(status?: StatusType): void;
+    attachScreenshots(arg: AllureTaskArgs<'attachScreenshots'>): void;
+    screenshotOne(arg: AllureTaskArgs<'screenshotOne'>): void;
+    attachVideoToTests(arg: {
+        path: string;
+    }): Promise<void>;
+    endGroup(): void;
+    endAllGroups(): void;
+    label(arg: AllureTaskArgs<'label'>): void;
+    link(arg: AllureTaskArgs<'link'>): void;
+    fullName(arg: AllureTaskArgs<'fullName'>): void;
+    parameter(arg: AllureTaskArgs<'parameter'>): void;
+    private addGroupLabelByUser;
+    suite(arg: AllureTaskArgs<'suite'>): void;
+    parentSuite(arg: AllureTaskArgs<'parentSuite'>): void;
+    subSuite(arg: AllureTaskArgs<'subSuite'>): void;
+    testParameter(arg: AllureTaskArgs<'parameter'>): void;
+    testFileAttachment(arg: AllureTaskArgs<'testFileAttachment'>): void;
+    fileAttachment(arg: AllureTaskArgs<'fileAttachment'>): void;
+    testAttachment(arg: AllureTaskArgs<'testAttachment'>): void;
+    attachment(arg: AllureTaskArgs<'attachment'>): void;
+    addGroupLabels(): void;
+    startTest(arg: AllureTaskArgs<'testStarted'>): void;
+    endTests(): void;
+    endGroups(): void;
+    endAll(): void;
+    addDescriptionHtml(arg: AllureTaskArgs<'addDescriptionHtml'>): void;
+    applyDescriptionHtml(): void;
+    testStatus(arg: AllureTaskArgs<'testStatus'>): void;
+    testDetails(arg: AllureTaskArgs<'testDetails'>): void;
+    applyGroupLabels(): void;
+    filterSteps(result: FixtureResult | TestResult | undefined): void;
+    endTest(arg: AllureTaskArgs<'testEnded'>): void;
+    startStep(arg: AllureTaskArgs<'stepStarted'>): void;
+    endAllSteps(arg: AllureTaskArgs<'stepEnded'>): void;
+    setLastStepStatus(steps: ExecutableItem[], status: Status, details?: StatusDetails): void;
+    endStep(arg: AllureTaskArgs<'stepEnded'>): void;
+    private executableAttachment;
+    private executableFileAttachment;
+}
