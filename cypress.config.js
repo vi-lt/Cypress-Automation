@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const { configureAllureAdapterPlugins } = require("@mmisty/cypress-allure-adapter/plugins");
+const Constant = require('./cypress/support/Constant');
 
 module.exports = defineConfig({
   e2e: {
@@ -16,7 +17,7 @@ module.exports = defineConfig({
     defaultCommandTimeout: 1500,
     video: true,
     specPattern: 'cypress/e2e/**/*.cy.js',
-    baseUrl: "https://www.inflectra.com/",
+    baseUrl: Constant.URL,
     setupNodeEvents(on, config) {
       const reporter = configureAllureAdapterPlugins(on, config);
 

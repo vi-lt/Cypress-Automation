@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@mmisty/cypress-allure-adapter": "^0.11.0",
-    "@shelex/cypress-allure-plugin": "^2.40.0"
+    "@shelex/cypress-allure-plugin": "^2.40.0",
+    "cypress-xpath": "^2.0.1"
   }
 }
