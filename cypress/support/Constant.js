@@ -1,3 +1,5 @@
-Cypress.env('URL', 'https://www.inflectra.com');
-Cypress.env('USERNAME', 'a');
-Cypress.env('PASSWORD', '12345678x@X');
+module.exports = {
+    URL: 'https://www.inflectra.com',
+    USERNAME: 'QA Automation',
+    PASSWORD: '12345678x@X',
+};
