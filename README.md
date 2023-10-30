@@ -8,10 +8,10 @@ This project uses Cypress and JavaScript to automate tasks. The test script will
 //By attribute = cy.get('input[class="user_email"]') or cy.get('input[name="user_login"]')
 // Get element from elements = cy.get('').eq(2)
 // Contains = cy.get('a').contains('Sign In');
+////Get element i in select option = cy.get('select').select(i)
 //----------------------------------------------------------------------------------------
 //<ul id="parent">
 //<li class="first"></li>
 //<li class="second"></li>
 //</ul >
 // Get children element from parent element = cy.get(‘#parent’).find(‘li’)
-////Get element i in select option = cy.get('select').select(i)
