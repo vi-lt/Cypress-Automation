@@ -21,10 +21,18 @@ export class SignUpPage {
     input_Password(password) {
         cy.get(txt_Password).type(password);
     }
+
     click_Register() {
         cy.get(btn_Register).click();
     }
 
+    signUpAccount(email, password) {
+        cy.reload();
+        cy.wait(1000);
+        this.input_Email(email);
+        this.input_Password(password);
+        this.click_Register();
+    }
     // selectRandomOptionCountry() {
     //     cy.xpath(select_Country).as('countryDropdown'); //gán 1 phần tử đặt tên là countryDropdown
     //     //find option là tìm các phần tử option trong select

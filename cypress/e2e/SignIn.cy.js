@@ -10,6 +10,7 @@ describe('This test case used to Sign Up - Sign In - Sign Out', () => {
         signUpPage.click_MenuIcon();
         signUpPage.click_NavMyAccount();
         loginPage.LoginAccount(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.verify_UserLogin(Constant.USERNAME);
     });
 
 });

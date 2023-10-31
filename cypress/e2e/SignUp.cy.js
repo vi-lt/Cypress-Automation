@@ -1,7 +1,8 @@
 import { signUpPage } from "../models/SignUpPage";
+import { loginPage } from "../models/LoginPage";
 import { common } from "../support/Common";
 const Constant = require('../support/Constant');
-
+const randomEmail = common.getRandomEmail();
 describe('This test case used to Sign Up - Sign In - Sign Out', () => {
 
   it('Navigate to Sign up page', () => {
@@ -9,10 +10,8 @@ describe('This test case used to Sign Up - Sign In - Sign Out', () => {
     cy.visit("/");
     signUpPage.click_MenuIcon();
     signUpPage.click_NavMyAccount();
-    signUpPage.input_Email(common.getRandomEmail());
-    signUpPage.input_Password(Constant.PASSWORD);
-    cy.wait(3000);
-    signUpPage.click_Register();
+    signUpPage.signUpAccount(randomEmail, Constant.PASSWORD)
+    loginPage.verify_UserLogin(randomEmail);
   });
 
 });
