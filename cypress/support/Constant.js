@@ -1,5 +1,5 @@
 module.exports = {
-    URL: 'https://www.inflectra.com',
-    USERNAME: 'QA Automation',
-    PASSWORD: '12345678x@X',
+    URL: 'https://practice.automationtesting.in/',
+    USERNAME: 'QaAutomation@gmailos.com',
+    PASSWORD: '@QaAutomation123',
 };

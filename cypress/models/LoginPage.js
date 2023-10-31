@@ -1,14 +1,10 @@
 //xpath
-const btn_nav_Login = '#navLoginBtn';
-const txt_Email = 'input[type="email"]';
-const txt_Password = 'input[type = "password"]';
-const btn_Login = 'input[type="submit"]';
+const txt_Email = '#username';
+const txt_Password = '#password';
+const btn_Login = 'input[name="login"]';
+const lable_NameAccount = 'strong';
 
 export class LoginPage {
-
-    click_NavLogin() {
-        cy.get(btn_nav_Login).click();
-    }
 
     inputEmail(email) {
         cy.get(txt_Email).type(email);
@@ -22,8 +18,12 @@ export class LoginPage {
         cy.get(btn_Login).click();
     }
 
+    verify_UserLogin(name) {
+        var expectedName = name.substring(0, name.indexOf('@'));
+        cy.get(lable_NameAccount).should('have.text', expectedName);
+    }
+
     LoginAccount(email, password) {
-        this.click_NavLogin();
         this.inputEmail(email);
         this.inputPassword(password);
         this.click_Loginbtn();
